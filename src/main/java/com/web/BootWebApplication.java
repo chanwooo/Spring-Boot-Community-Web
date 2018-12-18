@@ -31,7 +31,7 @@ public class BootWebApplication {
 					.createdDate(LocalDateTime.now())
 					.build());
 
-			IntStream.rangeClosed(1, 200).forEach(index ->
+			IntStream.rangeClosed(1, 5).forEach(index ->
 				boardRepository.save(Board.builder()
 						.title("게시글"+index)
 						.subTitle("순서"+index)
