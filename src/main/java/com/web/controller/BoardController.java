@@ -2,15 +2,15 @@ package com.web.controller;
 
 import com.web.service.BoardService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import com.web.domain.Board;
 /**
  * Created by KimYJ on 2017-07-12.
  */
@@ -35,5 +35,13 @@ public class BoardController {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
         return "/board/list";
     }
+
+    @PostMapping({"/",""})
+    public ResponseEntity<?> savePosts(@RequestBody Board board) {
+        boardService.saveAndUpdateBoard(board);
+        return new ResponseEntity<>("{}", HttpStatus.CREATED);
+    }
+
+
 
 }
