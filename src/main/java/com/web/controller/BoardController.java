@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.web.domain.Board;
+
+import java.time.LocalDateTime;
+
 /**
  * Created by KimYJ on 2017-07-12.
  */
@@ -35,13 +38,6 @@ public class BoardController {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
         return "/board/list";
     }
-
-    @PostMapping({"/",""})
-    public ResponseEntity<?> savePosts(@RequestBody Board board) {
-        boardService.saveAndUpdateBoard(board);
-        return new ResponseEntity<>("{}", HttpStatus.CREATED);
-    }
-
 
 
 }

@@ -57,4 +57,13 @@ public class Board implements Serializable {
         this.updatedDate = updatedDate;
         this.user = user;
     }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+    
 }

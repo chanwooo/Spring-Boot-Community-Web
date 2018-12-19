@@ -7,6 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by KimYJ on 2017-07-13.
  */
@@ -28,7 +30,5 @@ public class BoardService {
         return boardRepository.findById(idx).orElse(new Board());
     }
 
-    public Board saveAndUpdateBoard(Board board) {
-        return boardRepository.save(board);
-    }
+
 }
